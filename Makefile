@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/04/28 15:33:18 by junykim          ###   ########.fr        #
+#    Updated: 2022/04/28 16:06:17 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRCS		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEL 		= rm -f
 LIBFT 		= libft
-MLX			= ~/minilibx_mms_20210621
+MLX			= mlx_mms
 MAKE_OBJ_DIR= create_dir 
 
 #Rules
@@ -35,7 +35,7 @@ MAKE_OBJ_DIR= create_dir
 all : $(NAME)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(MAKE_OBJ_DIR)
-	$(CC) $(CFLAG) -c $< -o $@ -I $(INC)
+	@$(CC) $(CFLAG) -c $< -o $@ -I $(INC)
 	@echo "*.c =====>>>>>>>> *.o \t $<"
 
 $(MAKE_OBJ_DIR) :
@@ -51,13 +51,15 @@ $(NAME) : $(OBJS)
 
 clean :
 	$(DEL) -r $(OBJ_DIR)
+	$(DEL) libft.a libmlx.dylib
 	@make clean -C $(LIBFT)
 	@echo "====================fdf obj files has been deleted===================="
 
 fclean : clean
 	$(DEL) $(NAME)
 	$(DEL) $(LIBFT)/libft.a
-	@echo "==============fdf archive files has been deleted================"
+	$(DEL) $(MLX)/libmlx.dylib
+	@echo "==============fdf link files has been deleted================"
 
 re : fclean all
 
