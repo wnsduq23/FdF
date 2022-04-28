@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/04/28 16:46:55 by junykim          ###   ########.fr        #
+#    Updated: 2022/04/28 20:59:49 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRC_FILES	= draw how_to_draw \
 			  make_looks_like_3d \
 			  read_file \
 			  utility \
-			  main
+			  main \
+			  get_next_line_bonus \
+			  get_next_line_utils_bonus
 SRCS		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEL 		= rm -f

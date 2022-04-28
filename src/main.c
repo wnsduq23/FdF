@@ -6,32 +6,32 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:47:12 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 17:09:21 by junykim          ###   ########.fr       */
+/*   Updated: 2022/04/28 21:10:14 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+/** what is mlx_ptr? */
+/** int	deal_key(int key, void	*data) */
+/** { */
+/**     ft_printf("%d", key); */
+/**     return (0); */
+/** } */
+
+int	main(int ac, char **av)
 {
-	char	*dst;
+	t_fdf	*data;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	data = (t_fdf *)malloc(sizeof(t_fdf));
+	if (!data)
+		return (-1);
+	read_file(av[1], data);
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, WINDOW_X_LENGTH, WINDOW_Y_LENGTH, WINDOW_TITLE);
+	bresenham(10, 10, 600, 300, data);
+	mlx_key_hook(data->win_ptr, NULL, NULL);//?
+	mlx_loop(data->mlx_ptr);
+	return (0);
 }
-
-int	main(void)
-{
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
-
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
-}
+//deal_key
