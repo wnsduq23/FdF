@@ -6,33 +6,38 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 15:50:09 by junykim          ###   ########.fr       */
+/*   Updated: 2022/04/28 18:03:33 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <mlx.h>
 #include "../include/fdf.h"
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	get_width(const char *file)
 {
-	char	*dst;
+	int	width;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	return (width);
+}
+int	get_height(const char *file)
+{
+	int	height;
+
+	return (height);
 }
 
-int	main(void)
+void	read_file(const char *file, t_fdf *data)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data	img;
+	int		fd;
+	char	*line;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								&img.endian);
-	my_mlx_pixel_put(&img, 5, 5, 0x00FF0000);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	while (1)
+	{
+		fd = open(file, O_RDONLY);
+		line = get_next_line(fd);
+	}
+	data->height = get_height(file);// z value
+	data->width = get_width(file);
 }
+
+/** call gnl and split the each dot. atoi and list(save x,y coordinate & value)  */
+/** how to know BUFFER_SIZE? (== ONE LINE) */
