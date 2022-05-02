@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_file.c                                        :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/02 18:46:20 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 22:02:06 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	fill_matrix(char *file, t_fdf *data)
 	free(nums);
 }
 
-void	read_file(char *file, t_fdf *data)
+void	read_map(char *file, t_fdf *data)
 {
 	int		fd;
 	char	*line;

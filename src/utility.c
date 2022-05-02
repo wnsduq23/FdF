@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:46:21 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 20:46:43 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 22:46:44 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,10 @@ size_t	ft_wordcnt(char *s, char c)
 			i++;
 	}
 	return (num);
+}
+
+void	ft_error(char *s)
+{
+	ft_putstr_fd(s, 1);
+	exit(1);//how to use it?
 }
