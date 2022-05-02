@@ -6,12 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 21:12:59 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:46:20 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
-
+// fill_matrix : save coordinate by int type
+// nums : save temporarily split word of each line 
 static void	fill_matrix(char *file, t_fdf *data)
 {
 	int	i;
@@ -20,25 +21,26 @@ static void	fill_matrix(char *file, t_fdf *data)
 	char	*line;
 	char	**nums;
 
-	fd = open(file, O_RDONLY, 0);//is this reset read pointer?
-	i = 0;
-	data->z_matrix = (int **)malloc(sizeof(int *) * (data->column + 1));
+	fd = open(file, O_RDONLY);//is this reset read pointer?
+	data->z_matrix = (int **)malloc(sizeof(int *) * (data->column));
 	if (!data->z_matrix)
 		return ;
-	while (i <= data->column)
+	i = -1;
+	while (++i < data->column)
 	{
 		line = get_next_line(fd);
+		*ft_strrchr(line, '\n') = 0;
 		nums = ft_split(line, ' ');
-		data->z_matrix[i] = (int *)malloc(sizeof(int) * (data->row + 1));
+		data->z_matrix[i] = (int *)malloc(sizeof(int) * (data->row));
 		if (!data->z_matrix[i])
-			return ;	
+			return ;
 		j = -1;
-		while (++j <= data->row)
-			data->z_matrix[i][j] = ft_atoi(nums[i]);
-		free(nums[i]);
-		i++;
+		while (++j < data->row)
+			data->z_matrix[i][j] = ft_atoi(nums[j]);
+		/** free(nums[i]); */
 	}
 	close(fd);
+	free(nums);
 }
 
 void	read_file(char *file, t_fdf *data)
@@ -47,7 +49,7 @@ void	read_file(char *file, t_fdf *data)
 	char	*line;
 	int		column;
 
-	fd = open(file, O_RDONLY, 0);
+	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
 	data->row = ft_wordcnt(line, ' ');
 	column = 0;
@@ -55,7 +57,9 @@ void	read_file(char *file, t_fdf *data)
 	{
 		column++;
 		free(line);
+		/** line = NULL; */
 		line = get_next_line(fd);
+		// if there isnt same wordcnt each line, return -1
 	}
 	data->column = column;
 	close(fd);

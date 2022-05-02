@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 21:12:24 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:51:25 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 # include "libft.h"
 # include <mlx.h>
 
+#ifndef BUFFER_SIZE
 # define BUFFER_SIZE	 10
+#endif
 # define WINDOW_X_LENGTH 1920
 # define WINDOW_Y_LENGTH 1080
 # define WINDOW_TITLE	 "fdf"
@@ -37,9 +39,11 @@ typedef struct s_fdf
 	int		column;
 	int		**z_matrix;
 	int		zoom;
-	int		color;
 	void	*mlx_ptr;
 	void	*win_ptr;
+	int		color;
+	int		shift_x;
+	int		shift_y;
 } t_fdf;
 
 char		*get_next_line(int fd);
@@ -48,5 +52,7 @@ void		*del_node(t_node **node);
 size_t	ft_wordcnt(char *s, char c);
 void	bresenham(float x, float y, float x1, float y1, t_fdf *data);
 void	read_file(char *file, t_fdf *data);
+void	draw(t_fdf *data);
+void	isometric(float *x, float *y, int z);
 
 #endif
