@@ -6,14 +6,14 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/02 22:02:06 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 17:32:01 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 // fill_matrix : save coordinate by int type
 // nums : save temporarily split word of each line 
-static void	fill_matrix(char *file, t_fdf *data)
+static void	fill_matrix(char *file, t_map *map)
 {
 	int	i;
 	int j;
@@ -22,28 +22,28 @@ static void	fill_matrix(char *file, t_fdf *data)
 	char	**nums;
 
 	fd = open(file, O_RDONLY);//is this reset read pointer?
-	data->z_matrix = (int **)malloc(sizeof(int *) * (data->column));
-	if (!data->z_matrix)
+	map->z_matrix = (int **)malloc(sizeof(int *) * (map->column));
+	if (!map->z_matrix)
 		return ;
 	i = -1;
-	while (++i < data->column)
+	while (++i < map->column)
 	{
 		line = get_next_line(fd);
 		*ft_strrchr(line, '\n') = 0;
 		nums = ft_split(line, ' ');
-		data->z_matrix[i] = (int *)malloc(sizeof(int) * (data->row));
-		if (!data->z_matrix[i])
+		map->z_matrix[i] = (int *)malloc(sizeof(int) * (map->row));
+		if (!map->z_matrix[i])
 			return ;
 		j = -1;
-		while (++j < data->row)
-			data->z_matrix[i][j] = ft_atoi(nums[j]);
+		while (++j < map->row)
+			map->z_matrix[i][j] = ft_atoi(nums[j]);
 		/** free(nums[i]); */
 	}
 	close(fd);
 	free(nums);
 }
 
-void	read_map(char *file, t_fdf *data)
+void	read_map(char *file, t_map *map)
 {
 	int		fd;
 	char	*line;
@@ -51,7 +51,7 @@ void	read_map(char *file, t_fdf *data)
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
-	data->row = ft_wordcnt(line, ' ');
+	map->row = ft_wordcnt(line, ' ');
 	column = 0;
 	while (line)
 	{
@@ -61,10 +61,9 @@ void	read_map(char *file, t_fdf *data)
 		line = get_next_line(fd);
 		// if there isnt same wordcnt each line, return -1
 	}
-	data->column = column;
+	map->column = column;
 	close(fd);
-	fill_matrix(file, data);
+	fill_matrix(file, map);
 }
 
 /** call gnl and split the each dot. atoi and list(save x,y coordinate & value)  */
-/** how to know BUFFER_SIZE? (== ONE LINE) */

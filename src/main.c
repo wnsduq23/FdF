@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:47:12 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/02 22:51:45 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 17:44:12 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,23 @@ int	main(int ac, char **av)
 {
 	t_fdf	*fdf;
 	t_map	*map;
-	/** int i = 0, j = 0; */
+
 	if (ac == 2)
 	{
 		map = map_init();
 		fdf = fdf_init(map);
-		read_map(av[1], fdf);
-		draw(fdf->map, fdf);
+		read_map(av[1], map);
+		/** draw(fdf->map, fdf); */
 		mlx_loop(fdf->mlx_ptr);
 	}
 	/** [> draw(fdf); <] */
-	/** mlx_key_hook(fdf->win_ptr, deal_key, NULL);//? */
 	/** i = 0; */
-	/** while (i < fdf->column) */
+	/** while (i < fdf->map->column) */
 	/** { */
 	/**     j = 0; */
-	/**     while (j < fdf->row) */
+	/**     while (j < fdf->map->row) */
 	/**     { */
-	/**         printf("%3d", fdf->z_matrix[i][j]); */
+	/**         printf("%3d", fdf->map->z_matrix[i][j]); */
 	/**         j++; */
 	/**     } */
 	/**     printf("\n"); */
