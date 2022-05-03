@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/03 18:05:46 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/03 21:19:12 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ CFLAG		= -Werror -Wextra -Wall -g
 INC			= ./include
 SRC_DIR		= src/
 OBJ_DIR		= obj/
-SRC_FILES	= draw \
+SRC_FILES	= draw projection\
 			  read_map \
 			  util util_3d util_draw\
-			  main \
-			  init \
+			  main init\
+			  color \
 			  get_next_line_bonus \
 			  get_next_line_utils_bonus
 SRCS		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

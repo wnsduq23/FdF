@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 18:01:03 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 22:17:07 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 {
 	int		i;
 
-	if (x >= WINDOW_MENU_WIDTH && x < WINDOW_X_LENGTH && y >= 0 && y < WINDOW_Y_LENGTH)
+	if (x >= WINDOW_MENU_WIDTH && x < WINDOW_X_LEN && \
+			y >= 0 && y < WINDOW_Y_LEN)
 	{
 		i = (x * fdf->bits_per_pixel / 8) + (y * fdf->size_line);
 		fdf->data_addr[i] = color;
@@ -31,24 +32,29 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 /** } */
 
 //it's bresenham algorithm
-// point p is present point, point n is next point
-
-static void	draw_line(t_point p, t_point n, t_fdf *fdf)
+// point s is start point, point n is next point
+static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 {
 	t_point	delta;
 	t_point	sign;
 	t_point	cur;
 	int		error;
 
-	delta.x = ft_abs(n.x - p.x);
-	delta.y = ft_abs(n.y - p.y);
-	sign.x = p.x < n.x ? 1 : -1;
-	sign.y = p.y < n.y ? 1 : -1;
+	delta.x = ft_abs(n.x - s.x);
+	delta.y = ft_abs(n.y - s.y);
+	if (s.x < n.x)
+		sign.x = 1;
+	else
+		sign.x = -1;
+	if (s.y < n.y)
+		sign.y = 1;
+	else
+		sign.y = -1;
 	error = delta.x - delta.y;
-	cur = p;
-	while (cur.x != s.x || cur.y != s.y)
+	cur = s;
+	while (cur.x != n.x || cur.y != n.y)
 	{
-		put_pixel(fdf, cur.x, cur.y, get_color(cur, p, n, delta));
+		put_pixel(fdf, cur.x, cur.y, get_color(cur, s, n, delta));
 		if ((error * 2) > -delta.y)
 		{
 			error -= delta.y;
@@ -62,16 +68,15 @@ static void	draw_line(t_point p, t_point n, t_fdf *fdf)
 	}
 }
 
-/** draw O------ */
-/**      | */
-/**      | */
-/**      | */
-/**      | */
+/** draw 0------ 0------ ... */
+/**      |		 | */
+/**      |		 | */
+/**      |		 | */
 void	draw(t_map *map, t_fdf *fdf)
 {
 	int	x;
 	int	y;
-	
+
 	/** draw_background(fdf); */
 	y = 0;
 	while (y < map->column)
@@ -79,11 +84,11 @@ void	draw(t_map *map, t_fdf *fdf)
 		x = 0;
 		while (x < map->row)
 		{
-			if (x < map->row - 1)
-				draw_line(project(new_point(x, y, map), fdf), 
+			if (x < fdf->map->row - 1)//is it different map->row?
+				draw_line(project(new_point(x, y, map), fdf), \
 						project(new_point(x + 1, y, map), fdf), fdf);
-			if (y < map->column - 1)
-				draw_line(project(new_point(x, y, map), fdf), 
+			if (y < fdf->map->column - 1)
+				draw_line(project(new_point(x, y, map), fdf), \
 						project(new_point(x, y + 1, map), fdf), fdf);
 			x++;
 		}

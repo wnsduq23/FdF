@@ -1,27 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   how_to_draw.c                                      :+:      :+:    :+:   */
+/*   util_draw.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:55:26 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 16:59:15 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 21:07:51 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "../include/fdf.h"
 #include <math.h>
 
-void	isometric(float *x, float *y, int z)
+t_point	new_point(int x, int y, t_map *map)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
-}
-//it's bresenham algorithm
-// point p is present point, point n is next point
-void	draw_line(t_point *p, t_point *n, t_fdf *fdf)
-{
+	t_point	p;
 
+	p.x = x;
+	p.y = y;
+	p.z = map->z_matrix[y][x];
+	p.color = 0xffffff;// have to change it
+	return (p);
+}
+
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+int	ft_abs(int a)
+{
+	if (a > 0)
+		return (a);
+	else
+		return (-a);
 }

@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 17:32:01 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 20:59:37 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 // nums : save temporarily split word of each line 
 static void	fill_matrix(char *file, t_map *map)
 {
-	int	i;
-	int j;
-	int	fd;
+	int		i;
+	int		j;
+	int		fd;
 	char	*line;
 	char	**nums;
 
-	fd = open(file, O_RDONLY);//is this reset read pointer?
+	fd = open(file, O_RDONLY);
 	map->z_matrix = (int **)malloc(sizeof(int *) * (map->column));
 	if (!map->z_matrix)
 		return ;
@@ -37,7 +37,7 @@ static void	fill_matrix(char *file, t_map *map)
 		j = -1;
 		while (++j < map->row)
 			map->z_matrix[i][j] = ft_atoi(nums[j]);
-		/** free(nums[i]); */
+		free(nums[i]);
 	}
 	close(fd);
 	free(nums);
@@ -65,5 +65,3 @@ void	read_map(char *file, t_map *map)
 	close(fd);
 	fill_matrix(file, map);
 }
-
-/** call gnl and split the each dot. atoi and list(save x,y coordinate & value)  */

@@ -6,26 +6,24 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 17:42:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 17:57:20 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 20:57:24 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/fdf.h"
 
-t_point	project(t_point p, t_fdf *fdf)
-{
-	t_point a;
-
-	return (a);
-}
-
-void	zoom()
-{
-
-}
-
-void	rotate()
-{
-
-}
+/** void	zoom() */
+/** { */
+/**  */
+/** } */
+/**  */
+/** void	rotate() */
+/** { */
+/**  */
+/** } */
+/**  */
+/** void	isometric(float *x, float *y, int z) */
+/** { */
+/**     *x = (*x - *y) * cos(0.8); */
+/**     *y = (*x + *y) * sin(0.8) - z; */
+/** } */

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utility.c                                          :+:      :+:    :+:   */
+/*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:46:21 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 17:26:40 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/03 19:41:52 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,10 @@ void	ft_error(char *s)
 	exit(1);//how to use it?
 }
 
-int ft_max(int a, int b)
+int	ft_min(int a, int b)
 {
-	if (a > b)
-		return (a);
-	else 
-		return (b);
-}
-
-int	ft_abs(int a)
-{
-	if (a > 0)
+	if (a < b)
 		return (a);
 	else
-		return (-a);
-}
-
-t_point	new_point(int x, int y, t_map *map)
-{
-
+		return (b);
 }
