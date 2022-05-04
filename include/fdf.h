@@ -6,13 +6,12 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 21:17:00 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 22:40:00 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# include <unistd.h>// is that need?
 # include <stdlib.h>
 # include <fcntl.h>
 # include "libft.h"
@@ -24,10 +23,21 @@
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE		10
 #endif
+
+// about WINDOW
 # define WINDOW_X_LEN		1920
 # define WINDOW_Y_LEN		1080
 # define WINDOW_TITLE		"fdf"
 # define WINDOW_MENU_WIDTH	250
+
+// about COORDINATE MOVEMENT
+# define SHIFT_LEFT			20
+# define SHIFT_RIGHT		20
+# define SHIFT_UP			20
+# define SHIFT_DOWN			20
+# define ROTATE_X			0.05
+# define ROTATE_Y			0.05
+# define ROTATE_Z			0.05
 
 typedef enum e_bool
 {
@@ -127,6 +137,10 @@ t_camera	*camera_init(t_fdf *fdf);
 //			   control.c
 // ================================
 void	set_key_control(t_fdf *fdf);
+int	key_press(int key, void *param);
+int	mouse_press(int button, int x, int y, void *param);
+int	mouse_release(int button, int x, int y, void *param);
+int	mouse_move(int x, int y, void *param);
 
 // ================================
 //				color.c

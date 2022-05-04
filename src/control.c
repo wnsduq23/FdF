@@ -6,13 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 16:07:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 21:13:52 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 22:20:52 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-static int	key_press(int key, void *param)
+int	key_press(int key, void *param)
 {
 	t_fdf	*fdf;
 
@@ -33,7 +33,7 @@ static int	key_press(int key, void *param)
 	return (0);
 }
 
-static int	mouse_press(int button, int x, int y, void *param)
+int	mouse_press(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
 
@@ -47,7 +47,7 @@ static int	mouse_press(int button, int x, int y, void *param)
 	return (0);
 }
 
-static int	mouse_release(int button, int x, int y, void *param)
+int	mouse_release(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
 
@@ -59,7 +59,7 @@ static int	mouse_release(int button, int x, int y, void *param)
 	return (0);
 }
 
-static int	mouse_move(int x, int y, void *param)
+int	mouse_move(int x, int y, void *param)
 {
 	t_fdf	*fdf;
 
@@ -79,10 +79,9 @@ static int	mouse_move(int x, int y, void *param)
 
 void	set_key_control(t_fdf *fdf)
 {
-	mlx_mouse_hook(fdf->win, mouse_press, fdf);
-	mlx_mouse_hook(fdf->win, mouse_release, fdf);
-	mlx_mouse_hook(fdf->win, mouse_move, fdf);
-	mlx_key_hook(fdf->win, key_press, fdf);
-	/** mlx_loop_hook(fdf->win,close,fdf); */
+	mlx_hook(fdf->win, 2, 0, key_press, fdf);
+	/** mlx_hook(fdf->win, 17, 0, close, fdf); */
+	mlx_hook(fdf->win, 4, 0, mouse_press, fdf);
+	mlx_hook(fdf->win, 5, 0, mouse_release, fdf);
+	mlx_hook(fdf->win, 6, 0, mouse_move, fdf);
 }
-

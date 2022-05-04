@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/04 21:15:15 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/04 22:04:01 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,10 @@ OBJ_DIR		= obj/
 SRC_FILES	= draw projection\
 			  read_map \
 			  util util_3d util_draw\
-			  main init control\
+			  main init \
 			  color \
-			  get_next_line_bonus \
-			  get_next_line_utils_bonus
+			  control \
+			  get_next_line
 SRCS		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEL 		= rm -f
@@ -64,6 +64,8 @@ fclean : clean
 	$(DEL) $(MLX)/libmlx.dylib
 	@echo "==============fdf link files has been deleted================"
 
-re : fclean all
+re : 
+	make fclean
+	make all
 
 .PHONY : all clean fclean re

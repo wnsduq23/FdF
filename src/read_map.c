@@ -6,11 +6,12 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 18:24:32 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 22:09:55 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+#include <unistd.h>
 // fill_matrix : save coordinate by int type
 // nums : save temporarily split word of each line 
 static void	find_z_max_and_min(t_map *map)

@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 16:57:58 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/28 17:07:42 by junykim          ###   ########.fr       */
+/*   Created: 2022/03/31 20:11:08 by junykim           #+#    #+#             */
+/*   Updated: 2022/05/04 22:11:52 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
+#include <unistd.h>
+/** static char *line : have to return 'line include \n'  */
+/** find memory leak */
+/** fd : save pos where it's finished. */
 
 static char	*get_line(char const *save)
 {
@@ -63,7 +67,7 @@ static char	*update_new_malloc(char const *save, char const *buf)
 	return (new);
 }
 
-static char	*read_fd(char **s_save, int fd)
+static char	*read_fd(char **p_save, int fd)
 {
 	char		*buf;
 	ssize_t		byte;
@@ -73,16 +77,17 @@ static char	*read_fd(char **s_save, int fd)
 	buf = malloc(BUFFER_SIZE + 1);
 	if (buf == NULL)
 		return (NULL);
-	new = *s_save;
+	new = *p_save;
 	while (new == NULL || !ft_strchr(new, '\n'))
 	{	
 		byte = read(fd, buf, BUFFER_SIZE);
 		if (byte <= 0)
 			break ;
-		buf[byte] = '\0';
+		buf[byte] = 0;
 		temp = new;
 		new = update_new_malloc(new, buf);
 		free(temp);
+		temp = NULL;
 	}
 	free(buf);
 	buf = NULL;
@@ -93,23 +98,25 @@ static char	*read_fd(char **s_save, int fd)
 
 char	*get_next_line(int fd)
 {
-	static t_node	head;
-	t_node			*node;
-	char			*line;
+	static char	*save;
+	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE < 1)
 		return (NULL);
-	node = get_node(&head, fd);
-	if (node == NULL)
+	save = read_fd(&save, fd);
+	if (save == NULL)
 		return (NULL);
-	node->save = read_fd(&(node->save), fd);
-	if (node->save == NULL || *(node->save) == '\0')
-		return (del_node(&node));
-	line = get_line(node->save);
+	if (*save == 0)
+	{
+		free(save);
+		save = NULL;
+		return (NULL);
+	}
+	line = get_line(save);
 	if (line == NULL)
-		return (del_node(&node));
-	node->save = set_remains(&(node->save), ft_strlen(line));
-	if (node->save == NULL)
-		return (del_node(&node));
+		return (NULL);
+	save = set_remains(&save, ft_strlen(line));
+	if (save == NULL)
+		return (NULL);
 	return (line);
 }
