@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 22:24:08 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 21:17:00 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "libft.h"
 # include "error_message.h"
 # include "color.h"
+# include "key_macro.h"
 # include <mlx.h>
 
 #ifndef BUFFER_SIZE
@@ -28,10 +29,16 @@
 # define WINDOW_TITLE		"fdf"
 # define WINDOW_MENU_WIDTH	250
 
+typedef enum e_bool
+{
+	false,
+	true
+}			 t_bool;
+
 typedef enum e_projection_type
 {
 	ISO,
-	PARELLE
+	PARALLEL
 }				t_projection;
 
 typedef struct s_point
@@ -55,27 +62,33 @@ typedef struct s_map
 	int			row;
 	int			column;
 	int			**z_matrix;
+	int			z_max;
+	int			z_min;
 }				t_map;
 
+// camera is (a,b,c) orientation vector
 typedef struct s_camera
 {
+	t_projection	projection;// enum must first member variable?
 	double			alpha;
 	double			beta;
 	double			gamma;
-	t_projection	projection;
 	float			z_divisor;
 	int				zoom;
 	int				x_offset;
 	int				y_offset;
 }					t_camera;
 
+// x,y is mouse's coordinate
 typedef struct s_mouse
 {
-	int			up;
-	int			down;
-	int			left;
-	int			right;
+	t_bool		is_pressed;
+	int			x;
+	int			y;
+	int			previous_x;
+	int			previous_y;
 }				t_mouse;
+
 // this is for read file & save each data
 typedef struct s_fdf
 {
@@ -111,9 +124,17 @@ t_fdf		*fdf_init(t_map *map);
 t_camera	*camera_init(t_fdf *fdf);
 
 // ================================
+//			   control.c
+// ================================
+void	set_key_control(t_fdf *fdf);
+
+// ================================
 //				color.c
 // ================================
 int			get_color(t_point cur, t_point p, t_point n, t_point delta);
+int			get_default_color(int z, t_map *map);
+double		percent(int start, int end, int current);
+int			get_light(int start, int end, double percentage);
 
 // ================================
 //				draw.c
@@ -121,7 +142,7 @@ int			get_color(t_point cur, t_point p, t_point n, t_point delta);
 void		draw(t_map *map, t_fdf *fdf);
 
 // ================================
-//			  project.c
+//			  projection.c
 // ================================
 t_point		project(t_point p, t_fdf *fdf);
 
@@ -135,8 +156,11 @@ int			ft_max(int a, int b);
 // ================================
 //			  util_3d.c
 // ================================
-t_point		project(t_point p, t_fdf *fdf);
-void		isometric(float *x, float *y, int z);
+void		zoom(int key, t_fdf *fdf);
+void		move(int key, t_fdf *fdf);
+void		rotate(int key, t_fdf *fdf);
+void		flatten(int key, t_fdf *fdf);
+void		change_projection(int key, t_fdf *fdf);
 
 // ================================
 //				util.c

@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:03:29 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 22:09:56 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 20:36:07 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ t_map	*map_init(void)
 	map = malloc(sizeof(t_map));
 	if (!map)
 		return (0);
-	map->row = 0;
-	map->column = 0;
+	ft_memset(map, 0, sizeof(t_map));
 	return (map);
 }
 
@@ -31,6 +30,7 @@ t_fdf	*fdf_init(t_map *map)
 	fdf = (t_fdf *)malloc(sizeof(t_fdf));
 	if (!fdf)
 		return (0);
+	ft_memset(fdf, 0, sizeof(t_fdf));
 	fdf->mlx = mlx_init();
 	if (!fdf->mlx)
 		ft_error(ERR_FDF_INIT);
@@ -60,13 +60,13 @@ t_camera	*camera_init(t_fdf *fdf)
 	if (!camera)
 		return (0);
 	ft_memset(camera, 0, sizeof(t_camera));
-	camera->projection = PARELLE;// is that need it?
+	camera->projection = PARALLEL;// is that need it?
 	camera->zoom = ft_min((WINDOW_X_LEN - WINDOW_MENU_WIDTH) \
 			/ fdf->map->row / 2, \
 			WINDOW_Y_LEN / fdf->map->column / 2);
-	/** camera->alpha = 0; */
-	/** camera->beta = 0; */
-	/** camera->gamma = 0; */
+	camera->alpha = 1;
+	camera->beta = 1;
+	camera->gamma = 1;
 	camera->z_divisor = 1;
 	/** camera->x_offset = 0; */
 	/** camera->y_offset = 0; */

@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:47:12 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 20:52:06 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 20:37:29 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int ac, char **av)
 		read_map(av[1], map);
 		fdf->camera = camera_init(fdf);
 		draw(fdf->map, fdf);
+		set_key_control(fdf);
 		mlx_loop(fdf->mlx);
 	}
 	ft_error(ERR_USAGE);

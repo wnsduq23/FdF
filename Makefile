@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/03 21:19:12 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/04 21:15:15 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJ_DIR		= obj/
 SRC_FILES	= draw projection\
 			  read_map \
 			  util util_3d util_draw\
-			  main init\
+			  main init control\
 			  color \
 			  get_next_line_bonus \
 			  get_next_line_utils_bonus

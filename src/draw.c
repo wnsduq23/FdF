@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 22:17:07 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 17:34:01 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 
 //it's bresenham algorithm
 // point s is start point, point n is next point
+// delta is difference between point s and point n coordinate
 static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 {
 	t_point	delta;
@@ -84,7 +85,7 @@ void	draw(t_map *map, t_fdf *fdf)
 		x = 0;
 		while (x < map->row)
 		{
-			if (x < fdf->map->row - 1)//is it different map->row?
+			if (x < fdf->map->row - 1) //is it different map->row?
 				draw_line(project(new_point(x, y, map), fdf), \
 						project(new_point(x + 1, y, map), fdf), fdf);
 			if (y < fdf->map->column - 1)

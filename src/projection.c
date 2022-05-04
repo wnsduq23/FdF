@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 18:28:52 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 21:42:04 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 17:09:55 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	rotate_z(int *x, int *y, double gamma)
 /*
 ** Convert coordinate to iso projection
 */
-
+/** 0.523599 radian is 30 angle */
 static void	iso(int *x, int *y, int z)
 {
 	int	previous_x;
@@ -73,7 +73,7 @@ t_point	project(t_point p, t_fdf *fdf)
 {
 	p.x *= fdf->camera->zoom;
 	p.y *= fdf->camera->zoom;
-	p.z *= fdf->camera->zoom / fdf->camera->z_divisor;
+	p.z *= fdf->camera->zoom / fdf->camera->z_divisor;//why use divisor?
 	p.x -= (fdf->map->row * fdf->camera->zoom) / 2;
 	p.y -= (fdf->map->column * fdf->camera->zoom) / 2;
 	rotate_x(&p.y, &p.z, fdf->camera->alpha);
