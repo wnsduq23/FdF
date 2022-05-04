@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:40:00 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 22:44:19 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@
 # define WINDOW_TITLE		"fdf"
 # define WINDOW_MENU_WIDTH	250
 
-// about COORDINATE MOVEMENT
+// about COORDINATE MOVE
 # define SHIFT_LEFT			20
 # define SHIFT_RIGHT		20
 # define SHIFT_UP			20
 # define SHIFT_DOWN			20
+
+// about COORDINATE ROTATE
 # define ROTATE_X			0.05
 # define ROTATE_Y			0.05
 # define ROTATE_Z			0.05

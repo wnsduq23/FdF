@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:03:29 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 20:36:07 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/04 22:53:10 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ t_camera	*camera_init(t_fdf *fdf)
 	if (!camera)
 		return (0);
 	ft_memset(camera, 0, sizeof(t_camera));
-	camera->projection = PARALLEL;// is that need it?
+	camera->projection = PARALLEL;
 	camera->zoom = ft_min((WINDOW_X_LEN - WINDOW_MENU_WIDTH) \
 			/ fdf->map->row / 2, \
 			WINDOW_Y_LEN / fdf->map->column / 2);
@@ -68,7 +68,5 @@ t_camera	*camera_init(t_fdf *fdf)
 	camera->beta = 1;
 	camera->gamma = 1;
 	camera->z_divisor = 1;
-	/** camera->x_offset = 0; */
-	/** camera->y_offset = 0; */
 	return (camera);
 }
