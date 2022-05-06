@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 17:42:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:40:49 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 17:27:12 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	rotate(int key, t_fdf *fdf)
 
 void	flatten(int key, t_fdf *fdf)
 {
-	if (key == KEY_MINUS)
+	if (key == KEY_PLUS)
 		fdf->camera->z_divisor -= 0.1;
-	else if (key == KEY_PLUS)
+	else if (key == KEY_MINUS)
 		fdf->camera->z_divisor += 0.1;
 	if (fdf->camera->z_divisor < 0.1)
 		fdf->camera->z_divisor = 0.1;

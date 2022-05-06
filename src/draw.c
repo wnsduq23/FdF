@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 17:34:01 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 17:42:56 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 		fdf->data_addr[++i] = color >> 16;
 	}
 }
-
-/** static void	draw_background(t_fdf *fdf) */
-/** { */
-/**  */
-/** } */
 
 //it's bresenham algorithm
 // point s is start point, point n is next point
@@ -69,6 +64,21 @@ static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 	}
 }
 
+static void	draw_background(t_fdf *fdf)
+{
+	int	*image;
+	int	i;
+
+	ft_memset(fdf->data_addr, 0, WINDOW_X_LEN * WINDOW_Y_LEN * (fdf->bits_per_pixel / 8));
+	image = (int *)(fdf->data_addr);
+	i = 0;
+	while (i < WINDOW_X_LEN * WINDOW_Y_LEN)
+	{
+		image[i] = (i % WINDOW_X_LEN < WINDOW_MENU_WIDTH) ? MENU_BACKGROUND : BACKGROUND;
+		i++;
+	}
+}
+
 /** draw 0------ 0------ ... */
 /**      |		 | */
 /**      |		 | */
@@ -78,7 +88,7 @@ void	draw(t_map *map, t_fdf *fdf)
 	int	x;
 	int	y;
 
-	/** draw_background(fdf); */
+	draw_background(fdf);
 	y = 0;
 	while (y < map->column)
 	{
@@ -96,5 +106,5 @@ void	draw(t_map *map, t_fdf *fdf)
 		y++;
 	}
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
-	/** print_menu(fdf); */
+	print_menu(fdf);
 }

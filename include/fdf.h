@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:44:19 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 17:18:50 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,4 +185,8 @@ void		ft_error(char *s);
 size_t		ft_wordcnt(char *s, char c);
 int			ft_min(int a, int b);
 
+// ================================
+//				menu.c
+// ================================
+void	print_menu(t_fdf *fdf);
 #endif
