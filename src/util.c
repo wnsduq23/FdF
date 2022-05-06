@@ -6,11 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:46:21 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/03 19:41:52 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:31:12 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include <stdlib.h>
+#include "../include/define.h"
+#include "../include/libft.h"
 
 size_t	ft_wordcnt(char *s, char c)
 {
@@ -36,7 +38,7 @@ size_t	ft_wordcnt(char *s, char c)
 void	ft_error(char *s)
 {
 	ft_putstr_fd(s, 1);
-	exit(1);//how to use it?
+	exit(1);
 }
 
 int	ft_min(int a, int b)

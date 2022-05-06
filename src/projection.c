@@ -6,11 +6,11 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 18:28:52 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 17:09:55 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:18:18 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/define.h"
 #include <math.h>
 
 static void	rotate_x(int *y, int *z, double alpha)
@@ -50,9 +50,6 @@ static void	rotate_z(int *x, int *y, double gamma)
 	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
 }
 
-/*
-** Convert coordinate to iso projection
-*/
 /** 0.523599 radian is 30 angle */
 static void	iso(int *x, int *y, int z)
 {
@@ -65,15 +62,11 @@ static void	iso(int *x, int *y, int z)
 	*y = -z + (previous_x + previous_y) * sin(0.523599);
 }
 
-/*
-** Project coordinate to 2D plane
-*/
-
 t_point	project(t_point p, t_fdf *fdf)
 {
 	p.x *= fdf->camera->zoom;
 	p.y *= fdf->camera->zoom;
-	p.z *= fdf->camera->zoom / fdf->camera->z_divisor;//why use divisor?
+	p.z *= fdf->camera->zoom / fdf->camera->z_divisor;
 	p.x -= (fdf->map->row * fdf->camera->zoom) / 2;
 	p.y -= (fdf->map->column * fdf->camera->zoom) / 2;
 	rotate_x(&p.y, &p.z, fdf->camera->alpha);

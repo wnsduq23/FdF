@@ -6,12 +6,15 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:09:55 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:25:52 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
 #include <unistd.h>
+#include <fcntl.h>
+#include <stdlib.h>
+#include "../include/fdf.h"
+#include "../include/libft.h"
 // fill_matrix : save coordinate by int type
 // nums : save temporarily split word of each line 
 static void	find_z_max_and_min(t_map *map)
@@ -41,10 +44,18 @@ static void	find_z_max_and_min(t_map *map)
 	map->z_min = min;
 }
 
+static void	change_to_num(t_map *map, char **nums, int i)
+{
+	int	j;
+
+	j = -1;
+	while (++j < map->row)
+		map->z_matrix[i][j] = ft_atoi(nums[j]);
+}
+
 static void	fill_matrix(char *file, t_map *map)
 {
 	int		i;
-	int		j;
 	int		fd;
 	char	*line;
 	char	**nums;
@@ -62,9 +73,7 @@ static void	fill_matrix(char *file, t_map *map)
 		map->z_matrix[i] = (int *)malloc(sizeof(int) * (map->row));
 		if (!map->z_matrix[i])
 			return ;
-		j = -1;
-		while (++j < map->row)
-			map->z_matrix[i][j] = ft_atoi(nums[j]);
+		change_to_num(map, nums, i);
 		free(nums[i]);
 	}
 	close(fd);
@@ -85,9 +94,7 @@ void	read_map(char *file, t_map *map)
 	{
 		column++;
 		free(line);
-		/** line = NULL; */
 		line = get_next_line(fd);
-		// if there isnt same wordcnt each line, return -1
 	}
 	map->column = column;
 	close(fd);

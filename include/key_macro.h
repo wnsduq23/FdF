@@ -6,11 +6,11 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 20:21:44 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 21:37:16 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 19:29:14 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef KEY_MACRO_H
+#ifndef KEY_MACRO_H
 # define KEY_MACRO_H
 
 # define MOUSE_LEFT_BUTTON		1

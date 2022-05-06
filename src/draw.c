@@ -6,11 +6,14 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 18:46:43 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:29:10 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../include/libft.h"
 #include "../include/fdf.h"
+#include "../include/color.h"
+#include <mlx.h>
 
 static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 {
@@ -40,14 +43,11 @@ static int	ft_sign(int present, int next)
 static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 {
 	t_point	delta;
-	t_point	sign;
 	t_point	cur;
 	int		error[2];
 
 	delta.x = ft_abs(n.x - s.x);
 	delta.y = ft_abs(n.y - s.y);
-	sign.x = ft_sign(s.x, n.x);
-	sign.y = ft_sign(s.y, n.y);
 	error[0] = delta.x - delta.y;
 	cur = s;
 	while (cur.x != n.x || cur.y != n.y)
@@ -57,12 +57,12 @@ static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 		if (error[1] > -delta.y)
 		{
 			error[0] -= delta.y;
-			cur.x += sign.x;
+			cur.x += ft_sign(s.x, n.x);
 		}
 		if (error[1] < delta.x)
 		{
 			error[0] += delta.x;
-			cur.y += sign.y;
+			cur.y += ft_sign(s.y, n.y);
 		}
 	}
 }

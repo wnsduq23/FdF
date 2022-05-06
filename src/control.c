@@ -6,13 +6,16 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 16:07:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 18:41:19 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:31:33 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "../include/fdf.h"
+#include "../include/control_3d.h"
+#include "../include/key_macro.h"
 
-int	key_press(int key, void *param)
+static int	key_press(int key, void *param)
 {
 	t_fdf	*fdf;
 
@@ -33,7 +36,7 @@ int	key_press(int key, void *param)
 	return (0);
 }
 
-int	mouse_press(int button, int x, int y, void *param)
+static int	mouse_press(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
 
@@ -47,7 +50,7 @@ int	mouse_press(int button, int x, int y, void *param)
 	return (0);
 }
 
-int	mouse_release(int button, int x, int y, void *param)
+static int	mouse_release(int button, int x, int y, void *param)
 {
 	t_fdf	*fdf;
 
@@ -59,7 +62,7 @@ int	mouse_release(int button, int x, int y, void *param)
 	return (0);
 }
 
-int	mouse_move(int x, int y, void *param)
+static int	mouse_move(int x, int y, void *param)
 {
 	t_fdf	*fdf;
 

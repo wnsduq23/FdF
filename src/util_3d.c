@@ -6,11 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 17:42:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 17:27:12 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:20:28 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/define.h"
+#include "../include/draw.h"
+#include "../include/key_macro.h"
 
 void	zoom(int key, t_fdf *fdf)
 {

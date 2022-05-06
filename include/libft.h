@@ -6,13 +6,17 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:50:27 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/25 21:11:40 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:34:08 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE		10
+# endif
 
 typedef struct s_list
 {

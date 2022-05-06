@@ -1,45 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf.h                                              :+:      :+:    :+:   */
+/*   draw.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:30:37 by junykim          ###   ########.fr       */
+/*   Created: 2022/05/06 20:10:32 by junykim           #+#    #+#             */
+/*   Updated: 2022/05/06 20:22:46 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-# include "define.h"
-# include "draw.h"
-# include <stdlib.h>
+#ifndef DRAW_H
+# define DRAW_H
 
 // ================================
-//			  read_map.c
+//				draw.c
 // ================================
-void		read_map(char *file, t_map *map);
+void		draw(t_map *map, t_fdf *fdf);
 
 // ================================
-//			get_next_line.c
+//			 util_draw.c
 // ================================
-char		*get_next_line(int fd);
-t_node		*get_node(t_node *head, int fd);
-void		*del_node(t_node **node);
+t_point		new_point(int x, int y, t_map *map);
+int			ft_abs(int a);
+int			ft_max(int a, int b);
 
 // ================================
-//				init.c
+//				color.c
 // ================================
-t_map		*map_init(void);
-t_fdf		*fdf_init(t_map *map);
-t_camera	*camera_init(t_fdf *fdf);
+int			get_color(t_point cur, t_point p, t_point n, t_point delta);
+int			get_default_color(int z, t_map *map);
+double		percent(int start, int end, int current);
+int			get_light(int start, int end, double percentage);
 
 // ================================
-//				util.c
+//				menu.c
 // ================================
-void		ft_error(char *s);
-size_t		ft_wordcnt(char *s, char c);
-int			ft_min(int a, int b);
+void		print_menu(t_fdf *fdf);
+
+// ================================
+//			  projection.c
+// ================================
+t_point		project(t_point p, t_fdf *fdf);
 
 #endif

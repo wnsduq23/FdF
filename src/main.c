@@ -6,12 +6,14 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:47:12 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 20:37:29 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:29:40 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <mlx.h>
 #include "../include/fdf.h"
-#include <stdio.h>
+#include "../include/control_3d.h"
+#include "../include/error_message.h"
 
 /** what is mlx? */
 int	main(int ac, char **av)

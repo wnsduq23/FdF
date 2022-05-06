@@ -6,11 +6,14 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 19:41:29 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 17:46:35 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:17:56 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/define.h"
+#include "../include/control_3d.h"
+#include "../include/color.h"
+#include <mlx.h>
 
 void	print_menu(t_fdf *fdf)
 {

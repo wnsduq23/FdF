@@ -6,12 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 20:11:08 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:11:52 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 19:59:30 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/libft.h"
 #include <unistd.h>
+#include <stdlib.h>
 /** static char *line : have to return 'line include \n'  */
 /** find memory leak */
 /** fd : save pos where it's finished. */

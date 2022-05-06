@@ -6,11 +6,15 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:03:29 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 18:01:21 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:26:43 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <mlx.h>
 #include "../include/fdf.h"
+#include "../include/error_message.h"
+#include "../include/libft.h"
 
 t_map	*map_init(void)
 {
@@ -64,9 +68,6 @@ t_camera	*camera_init(t_fdf *fdf)
 	camera->zoom = ft_min((WINDOW_X_LEN - WINDOW_MENU_WIDTH) \
 			/ fdf->map->row / 2, \
 			WINDOW_Y_LEN / fdf->map->column / 2);
-	/** camera->alpha = -1; */
-	/** camera->beta = -1; */
-	/** camera->gamma = -1; */
 	camera->z_divisor = 1;
 	return (camera);
 }

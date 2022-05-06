@@ -6,11 +6,12 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 20:06:19 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 18:41:02 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 20:05:10 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fdf.h"
+#include "../include/define.h"
+#include "../include/color.h"
 
 double	percent(int start, int end, int current)
 {
