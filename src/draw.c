@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 17:42:56 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 18:46:43 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static void	put_pixel(t_fdf *fdf, int x, int y, int color)
 	}
 }
 
+static int	ft_sign(int present, int next)
+{
+	if (present < next)
+		return (1);
+	else
+		return (-1);
+}
+
 //it's bresenham algorithm
 // point s is start point, point n is next point
 // delta is difference between point s and point n coordinate
@@ -34,31 +42,26 @@ static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 	t_point	delta;
 	t_point	sign;
 	t_point	cur;
-	int		error;
+	int		error[2];
 
 	delta.x = ft_abs(n.x - s.x);
 	delta.y = ft_abs(n.y - s.y);
-	if (s.x < n.x)
-		sign.x = 1;
-	else
-		sign.x = -1;
-	if (s.y < n.y)
-		sign.y = 1;
-	else
-		sign.y = -1;
-	error = delta.x - delta.y;
+	sign.x = ft_sign(s.x, n.x);
+	sign.y = ft_sign(s.y, n.y);
+	error[0] = delta.x - delta.y;
 	cur = s;
 	while (cur.x != n.x || cur.y != n.y)
 	{
 		put_pixel(fdf, cur.x, cur.y, get_color(cur, s, n, delta));
-		if ((error * 2) > -delta.y)
+		error[1] = 2 * error[0];
+		if (error[1] > -delta.y)
 		{
-			error -= delta.y;
+			error[0] -= delta.y;
 			cur.x += sign.x;
 		}
-		if ((error * 2) < delta.x)
+		if (error[1] < delta.x)
 		{
-			error += delta.x;
+			error[0] += delta.x;
 			cur.y += sign.y;
 		}
 	}
@@ -69,12 +72,16 @@ static void	draw_background(t_fdf *fdf)
 	int	*image;
 	int	i;
 
-	ft_memset(fdf->data_addr, 0, WINDOW_X_LEN * WINDOW_Y_LEN * (fdf->bits_per_pixel / 8));
+	ft_memset(fdf->data_addr, 0, \
+			WINDOW_X_LEN * WINDOW_Y_LEN * (fdf->bits_per_pixel / 8));
 	image = (int *)(fdf->data_addr);
 	i = 0;
 	while (i < WINDOW_X_LEN * WINDOW_Y_LEN)
 	{
-		image[i] = (i % WINDOW_X_LEN < WINDOW_MENU_WIDTH) ? MENU_BACKGROUND : BACKGROUND;
+		if (i % WINDOW_X_LEN < WINDOW_MENU_WIDTH)
+			image[i] = MENU_BACKGROUND;
+		else
+			image[i] = BACKGROUND;
 		i++;
 	}
 }
@@ -95,10 +102,10 @@ void	draw(t_map *map, t_fdf *fdf)
 		x = 0;
 		while (x < map->row)
 		{
-			if (x < fdf->map->row - 1) //is it different map->row?
+			if (x < map->row - 1)
 				draw_line(project(new_point(x, y, map), fdf), \
 						project(new_point(x + 1, y, map), fdf), fdf);
-			if (y < fdf->map->column - 1)
+			if (y < map->column - 1)
 				draw_line(project(new_point(x, y, map), fdf), \
 						project(new_point(x, y + 1, map), fdf), fdf);
 			x++;

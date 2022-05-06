@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 16:07:31 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/04 22:20:52 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/06 18:41:19 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	mouse_move(int x, int y, void *param)
 void	set_key_control(t_fdf *fdf)
 {
 	mlx_hook(fdf->win, 2, 0, key_press, fdf);
-	/** mlx_hook(fdf->win, 17, 0, close, fdf); */
 	mlx_hook(fdf->win, 4, 0, mouse_press, fdf);
 	mlx_hook(fdf->win, 5, 0, mouse_release, fdf);
 	mlx_hook(fdf->win, 6, 0, mouse_move, fdf);
