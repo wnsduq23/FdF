@@ -1,8 +1,8 @@
-# FdF
-### 3D Wireframe Viewer
+# 3D Wireframe Viewer
+---
 map This project works only on macOS due to its dependency on the mlx-mms library (Metal, Cocoa)
 
-### Usage (macOS only)
+## Usage (macOS only)
 #run make
 make
 #execute program
@@ -25,7 +25,7 @@ increase height : ]
 decrease height : [
 landscape 42_color
 
-### Map format (*.fdf)
+## Map format (*.fdf)
 The coordinates of this landscape are stored in a file (test_maps/*.fdf) passed as a parameter to your program. Here is an example:
 
 // *.fdf file 
