@@ -29,7 +29,6 @@ landscape 42_color
 The coordinates of this landscape are stored in a file (test_maps/*.fdf) passed as a parameter to your program. Here is an example:
 
 // *.fdf file 
-/code
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
 0  0 10 10  0  0 10 10  0  0  0 10 10 10 10 10  0  0  0
