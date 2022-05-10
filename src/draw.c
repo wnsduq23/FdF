@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:29:10 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/10 18:17:16 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ static int	ft_sign(int present, int next)
 		return (-1);
 }
 
-//it's bresenham algorithm
-// point s is start point, point n is next point
-// delta is difference between point s and point n coordinate
 static void	draw_line(t_point s, t_point n, t_fdf *fdf)
 {
 	t_point	delta;
@@ -86,10 +83,6 @@ static void	draw_background(t_fdf *fdf)
 	}
 }
 
-/** draw 0------ 0------ ... */
-/**      |		 | */
-/**      |		 | */
-/**      |		 | */
 void	draw(t_map *map, t_fdf *fdf)
 {
 	int	x;

@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 20:06:19 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:05:10 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/10 18:17:30 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	get_light(int start, int end, double percentage)
 	return ((int)((1 - percentage) * start + percentage * end));
 }
 
-/** point cur is current point , start, next point */
 int	get_color(t_point cur, t_point s, t_point n, t_point delta)
 {
 	int		red;

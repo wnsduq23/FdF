@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 18:28:52 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:18:18 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/10 18:18:49 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@ static void	rotate_x(int *y, int *z, double alpha)
 	*z = -previous_y * sin(alpha) + *z * cos(alpha);
 }
 
-/*
-** Rotate coordinate by y axis
-*/
-
 static void	rotate_y(int *x, int *z, double beta)
 {
 	int	previous_x;
@@ -34,10 +30,6 @@ static void	rotate_y(int *x, int *z, double beta)
 	*x = previous_x * cos(beta) + *z * sin(beta);
 	*z = -previous_x * sin(beta) + *z * cos(beta);
 }
-
-/*
-** Rotate coordinate by z axis
-*/
 
 static void	rotate_z(int *x, int *y, double gamma)
 {
@@ -50,7 +42,6 @@ static void	rotate_z(int *x, int *y, double gamma)
 	*y = previous_x * sin(gamma) + previous_y * cos(gamma);
 }
 
-/** 0.523599 radian is 30 angle */
 static void	iso(int *x, int *y, int z)
 {
 	int	previous_x;

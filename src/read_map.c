@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:25:52 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/10 18:19:05 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 #include <stdlib.h>
 #include "../include/fdf.h"
 #include "../include/libft.h"
-// fill_matrix : save coordinate by int type
-// nums : save temporarily split word of each line 
+
 static void	find_z_max_and_min(t_map *map)
 {
 	int		max;
