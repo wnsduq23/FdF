@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:30:37 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/17 23:01:01 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include "define.h"
 # include "draw.h"
 # include <stdlib.h>
+# include "error_message.h"
 
 // ================================
 //			  read_map.c

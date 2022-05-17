@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/10 18:19:05 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/17 23:02:46 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,11 @@ void	read_map(char *file, t_map *map)
 	int		column;
 
 	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		ft_error(ERR_MAP);
 	line = get_next_line(fd);
+	if (line == NULL)
+		ft_error(ERR_MAP_READING);
 	map->row = ft_wordcnt(line, ' ');
 	column = 0;
 	while (line)
