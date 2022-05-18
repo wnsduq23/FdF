@@ -6,14 +6,14 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/06 17:19:31 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/18 17:06:34 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #Variables
 NAME		= fdf
-CC 			= gcc
-CFLAG		= -Werror -Wextra -Wall -g
+CC 			= cc
+CFLAG		= -Werror -Wextra -Wall
 INC			= ./include
 SRC_DIR		= src/
 OBJ_DIR		= obj/
