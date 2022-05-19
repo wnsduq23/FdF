@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/18 17:06:34 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/18 19:03:14 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,8 +33,6 @@ MAKE_OBJ_DIR= create_dir
 
 #Rules
 
-#https://stackoverflow.com/questions/1950926/create-directories-using-make-file
-	
 all : $(NAME)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c | $(MAKE_OBJ_DIR)
