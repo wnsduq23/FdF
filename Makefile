@@ -6,7 +6,7 @@
 #    By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/28 14:22:01 by junykim           #+#    #+#              #
-#    Updated: 2022/05/18 19:03:14 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/24 21:41:00 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,8 +22,7 @@ SRC_FILES	= draw projection\
 			  util util_3d util_draw\
 			  main init menu\
 			  color \
-			  control \
-			  get_next_line
+			  control
 SRCS		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJS 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 DEL 		= rm -f

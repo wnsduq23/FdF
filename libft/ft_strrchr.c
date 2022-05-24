@@ -6,11 +6,11 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:21:25 by junykim           #+#    #+#             */
-/*   Updated: 2022/03/22 15:37:45 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:29:25 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
-
+/** return address of same value with (int)c */
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*save;

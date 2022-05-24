@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 16:47:12 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/17 23:01:08 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/19 15:38:32 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "../include/fdf.h"
 #include "../include/control_3d.h"
 
-/** what is mlx? */
 int	main(int ac, char **av)
 {
 	t_fdf	*fdf;

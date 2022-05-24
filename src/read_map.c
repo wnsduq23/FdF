@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:36:38 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/17 23:02:46 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:27:23 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include "../include/fdf.h"
-#include "../include/libft.h"
+#include "../libft/libft.h"
 
 static void	find_z_max_and_min(t_map *map)
 {

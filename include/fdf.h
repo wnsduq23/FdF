@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 13:38:17 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/17 23:01:01 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:26:59 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@
 //			  read_map.c
 // ================================
 void		read_map(char *file, t_map *map);
-
-// ================================
-//			get_next_line.c
-// ================================
-char		*get_next_line(int fd);
-t_node		*get_node(t_node *head, int fd);
-void		*del_node(t_node **node);
 
 // ================================
 //				init.c

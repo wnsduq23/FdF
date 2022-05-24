@@ -6,11 +6,12 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:21:44 by junykim           #+#    #+#             */
-/*   Updated: 2022/03/18 20:09:32 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:32:07 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+/** it's ft_strtrim_malloc */
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

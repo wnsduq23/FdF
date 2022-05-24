@@ -6,12 +6,13 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:19:21 by junykim           #+#    #+#             */
-/*   Updated: 2022/03/23 22:52:51 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:31:02 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
+/** it's ft_split_malloc */
 
 static size_t	ft_wordcnt(char *s, char c)
 {

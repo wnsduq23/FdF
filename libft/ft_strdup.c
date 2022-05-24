@@ -6,11 +6,12 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/11 10:20:07 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/25 21:12:08 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:32:41 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 #include <stdlib.h>
+/** it's ft_strdup_malloc */
 
 char	*ft_strdup(const char *s)
 {

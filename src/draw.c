@@ -6,11 +6,11 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:35:36 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/10 18:17:16 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:23:35 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "../libft/libft.h"
 #include "../include/fdf.h"
 #include "../include/color.h"
 #include <mlx.h>

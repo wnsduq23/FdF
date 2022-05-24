@@ -6,13 +6,13 @@
 #    By: junykim <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/22 20:50:28 by junykim           #+#    #+#              #
-#    Updated: 2022/04/23 19:49:00 by junykim          ###   ########.fr        #
+#    Updated: 2022/05/24 21:01:41 by junykim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = libft.a
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = ./ft_atoi.c \
 	   ./ft_bzero.c \
@@ -47,7 +47,10 @@ SRCS = ./ft_atoi.c \
 	   ./ft_strtrim.c \
 	   ./ft_substr.c \
 	   ./ft_tolower.c \
-	   ./ft_toupper.c
+	   ./ft_toupper.c \
+	   ./get_next_line.c \
+	   ./get_next_line_bonus.c \
+	   ./get_next_line_utils_bonus.c
 SRCS_B = ./ft_lstmap.c \
 		 ./ft_lstnew.c \
 		 ./ft_lstiter.c \

@@ -6,11 +6,12 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 12:21:51 by junykim           #+#    #+#             */
-/*   Updated: 2022/03/18 20:59:53 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/02 18:31:38 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
 #include "libft.h"
+/** it's ft_substr_malloc */
 
 char	*ft_substr(char const *s, unsigned int start, size_t n)
 {

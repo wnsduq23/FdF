@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/06 20:03:09 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:34:56 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:25:53 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,13 +49,6 @@ typedef struct s_point
 	int			z;
 	int			color;
 }				t_point;
-typedef struct s_node
-{
-	int				fd;
-	char			*save;
-	struct s_node	*prev;
-	struct s_node	*next;
-}					t_node;
 
 // save map information 
 typedef struct s_map

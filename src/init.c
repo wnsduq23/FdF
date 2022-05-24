@@ -6,7 +6,7 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 22:03:29 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:26:43 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:40:25 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <mlx.h>
 #include "../include/fdf.h"
 #include "../include/error_message.h"
-#include "../include/libft.h"
+#include "../libft/libft.h"
 
 t_map	*map_init(void)
 {

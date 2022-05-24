@@ -6,7 +6,7 @@
 /*   By: junykim <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 11:50:27 by junykim           #+#    #+#             */
-/*   Updated: 2022/04/25 21:11:40 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:41:44 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
+/*------------------------
+	  ft_list.c
+------------------------*/
 t_list				*ft_lstnew(void *content);
 void				ft_lstadd_front(t_list **lst, t_list *new);
 
@@ -72,5 +75,23 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 		void (*del)(void *));
+
+/*------------------------
+	  get_next_line.c
+------------------------*/
+# define BUFFER_SIZE 4096
+
+typedef struct s_node
+{
+	int				fd;
+	char			*save;
+	struct s_node	*prev;
+	struct s_node	*next;
+}t_node;
+
+char				*get_next_line(int fd);
+char				*get_next_line_multi(int fd);
+t_node				*get_node(t_node *head, int fd);
+void				*del_node(t_node **node);
 
 #endif

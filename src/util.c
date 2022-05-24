@@ -6,13 +6,13 @@
 /*   By: junykim <junykim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 20:46:21 by junykim           #+#    #+#             */
-/*   Updated: 2022/05/06 20:31:12 by junykim          ###   ########.fr       */
+/*   Updated: 2022/05/24 21:39:59 by junykim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "../include/define.h"
-#include "../include/libft.h"
+#include "../libft/libft.h"
 
 size_t	ft_wordcnt(char *s, char c)
 {
